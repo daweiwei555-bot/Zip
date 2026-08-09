@@ -1,0 +1,7 @@
+services:
+  - type: worker
+    name: sherlock-runner
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    startCommand: /app/run.sh
