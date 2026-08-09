@@ -39,9 +39,28 @@
 
 注意
 - Sherlock 的 CLI 入口可能会随 upstream 改动而改变；如果运行失败，请把容器日志贴给我，我会帮你调整 run.sh。
-- Render 的 worker 是短暂容器，输出文件保存在容器内。如果需要持久化（例如上传到 S3 或存储到外部），告诉我想用的方式和凭证（或我可以添加上传到 S3 的示例，但不在代码中存放密钥）。
+- Render 的 worker 是短暂容器，输出文件保存在容器内。如果需要持久化（例如上传到 S3 或存储到外部），告诉我想用的方式和凭证（或我可以添加上传逻辑）。
 
 我已把 Dockerfile、run.sh、render.yaml 和 README.md 提交到仓库： https://github.com/daweiwei555-bot/Zip
 
-下一步我会：
-- 如果你想让我继续，我可以帮助你监控部署日志或根据日志修复问题；把部署后的日志贴给我即可.
+Windows 一键桌面快捷方式
+
+如果你只想在 Windows 电脑上得到一个一键运行的桌面快捷方式：
+
+- 方法一（推荐，图形化）：双击仓库根目录下的 `create_desktop_shortcut.bat`。脚本会检查环境（Git Bash、Python），并调用 PowerShell 在桌面创建名为 "ZIP" 的快捷方式，指向仓库内的 `Sherlock.bat`。
+
+- 方法二（PowerShell，静默）：以管理员或普通用户在 PowerShell 中运行：
+
+  ```powershell
+  # 在仓库根目录执行
+  .\create_desktop_shortcut.ps1
+  ```
+
+- 快捷方式会把默认参数 `daweiwei5211@outlook.com` 作为运行参数传给 `Sherlock.bat`（可以自行修改 `create_desktop_shortcut.ps1` 或在创建后编辑快捷方式属性来改为其它用户名）。
+
+下一步
+- 我已在分支 `fix/repo-cleanup` 添加了用于创建桌面快捷方式的 PowerShell 脚本与增强后的批处理脚本。你可以在本地克隆该分支并运行 `create_desktop_shortcut.bat` 来生成桌面快捷方式。
+
+如需我继续，我可以：
+- 直接把分支合并到 main 并在仓库中保留这些文件（需要你明确同意）。
+- 或先把 PR 发给你审阅（我现在没有创建 PR 的权限/工具），你可以查看后合并。
