@@ -19,6 +19,7 @@ echo ╔════════════════════════
 echo ║     Sherlock 一键安装 - ZIP 快捷方式生成器                   ║
 echo ╚═══════════════════════════════════════════════════════════════╝
 echo.
+echo 账户: daweiwei555@gmail.com
 echo 安装路径: %INSTALL_PATH%
 echo 快捷方式: %SHORTCUT%
 echo.
@@ -137,9 +138,10 @@ echo ║                   ✓ 安装完成！                                �
 echo ╚═══════════════════════════════════════════════════════════════╝
 echo.
 echo 📍 安装信息：
+echo    系统账户: daweiwei555@gmail.com
+echo    搜索用户: daweiwei5211@outlook.com
 echo    仓库位置: %INSTALL_PATH%
 echo    快捷方式: ZIP（在你的桌面上）
-echo    搜索用户: daweiwei5211@outlook.com
 echo.
 echo 🚀 使用方法：
 echo    1. 查看你的桌面
