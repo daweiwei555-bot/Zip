@@ -6,7 +6,7 @@
 [CmdletBinding()]
 param(
     [string]$ShortcutName = 'ZIP',
-    [string]$Argument = 'daweiwei5211@outlook.com'
+    [string]$Argument = 'ZIP'
 )
 
 try {

@@ -20,6 +20,7 @@ if exist "%~dp0Sherlock.bat" (
 )
 
 echo 完成。桌面上应已出现 ZIP 快捷方式，并已启动 Sherlock。
+echo 默认传入参数：ZIP
 echo 如需更改默认搜索用户名，请修改 create_desktop_shortcut.ps1 的 -Argument 值或编辑已创建的快捷方式属性。
 
 pause

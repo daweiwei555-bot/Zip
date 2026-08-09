@@ -54,11 +54,7 @@ Windows 一键桌面快捷方式
   .\create_desktop_shortcut.ps1
   ```
 
-- 快捷方式会把默认参数 `daweiwei5211@outlook.com` 作为运行参数传给 `Sherlock.bat`（可以自行修改 `create_desktop_shortcut.ps1` 或在创建后编辑快捷方式属性来改为其它用户名）。
+- 快捷方式会把默认参数 `ZIP` 作为运行参数传给 `Sherlock.bat`（可以自行修改 `create_desktop_shortcut.ps1` 或在创建后编辑快捷方式属性来改为其它用户名）。
 
 下一步
-- 我已在分支 `fix/repo-cleanup` 添加了用于创建桌面快捷方式的 PowerShell 脚本与增强后的批处理脚本，并已把这些文件合并到 main。你只需在本地克隆 main 分支并运行 `installer_run_once.bat` 或双击 `create_desktop_shortcut.bat` 来生成桌面快捷方式。
-
-如需我继续，我可以：
-- 帮你把默认用户名替换为其它值（需要你提供）。
-- 给出远程帮助步骤或检查运行日志（你把运行输出贴给我）。
+- 我已在 main 分支更新了桌面快捷方式脚本，默认用户名已改为 `ZIP`。你只需在本地运行 `installer_run_once.bat` 或 `create_desktop_shortcut.bat` 来生成并运行快捷方式。

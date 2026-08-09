@@ -1,6 +1,6 @@
 @echo off
 REM 一键生成桌面快捷方式
-REM 适用于搜索用户名: daweiwei5211@outlook.com
+REM 适用于运行: ZIP
 
 chcp 65001 >nul
 setlocal enabledelayedexpansion
@@ -12,7 +12,7 @@ set "DESKTOP=%USERPROFILE%\Desktop"
 set "SHORTCUT=%DESKTOP%\ZIP.lnk"
 
 echo.
-echo ���═══════════════════════════════════════════════════════════╗
+echo ╔═══════════════════════════════════════════════════════════╗
 echo ║        正在生成桌面快捷方式 - ZIP (一键启动)              ║
 echo ╚═══════════════════════════════════════════════════════════╝
 echo.
@@ -65,7 +65,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0create_desktop_shortcu
         "$WshShell = New-Object -ComObject WScript.Shell; " ^
         "$Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); " ^
         "$Shortcut.TargetPath = '%TARGET_BAT%'; " ^
-        "$Shortcut.Arguments = 'daweiwei5211@outlook.com'; " ^
+        "$Shortcut.Arguments = 'ZIP'; " ^
         "$Shortcut.WorkingDirectory = '%SCRIPT_DIR%'; " ^
         "$Shortcut.Description = 'Sherlock 用户搜索 - ZIP 快捷启动'; " ^
         "$Shortcut.IconLocation = '%SCRIPT_DIR%Sherlock.bat,0'; " ^
@@ -85,7 +85,7 @@ if errorlevel 1 (
         echo sLinkFile = "%SHORTCUT%"
         echo Set oLink = oWS.CreateShortCut(sLinkFile^)
         echo oLink.TargetPath = "%TARGET_BAT%"
-        echo oLink.Arguments = "daweiwei5211@outlook.com"
+        echo oLink.Arguments = "ZIP"
         echo oLink.WorkingDirectory = "%SCRIPT_DIR%"
         echo oLink.Description = "Sherlock 用户搜索 - ZIP 快捷启动"
         echo oLink.Save
@@ -103,11 +103,11 @@ echo.
 echo 📌 桌面快捷方式信息：
 echo    名称: ZIP
 echo    位置: %DESKTOP%
-echo    功能: 搜索用户 daweiwei5211@outlook.com
+echo    功能: 运行: ZIP
 echo.
 echo 💡 用法：
 echo    1. 双击桌面的 ZIP 快捷方式
-echo    2. 等待搜索完成（首次较慢）
+echo    2. 等待完成（首次较慢）
 echo    3. 结果保存在项目的 output\ 文件夹
 echo.
 echo 📂 项目路径: %SCRIPT_DIR%
