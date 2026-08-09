@@ -12,7 +12,7 @@ set "DESKTOP=%USERPROFILE%\Desktop"
 set "SHORTCUT=%DESKTOP%\ZIP.lnk"
 
 echo.
-echo ╔═══════════════════════════════════════════════════════════╗
+echo ���═══════════════════════════════════════════════════════════╗
 echo ║        正在生成桌面快捷方式 - ZIP (一键启动)              ║
 echo ╚═══════════════════════════════════════════════════════════╝
 echo.
@@ -58,17 +58,20 @@ echo 🔧 正在创建快捷方式...
 echo 位置: %SHORTCUT%
 echo.
 
-REM 使用 PowerShell 创建快捷方式
-powershell -NoProfile -Command ^
-    "$WshShell = New-Object -ComObject WScript.Shell; " ^
-    "$Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); " ^
-    "$Shortcut.TargetPath = '%TARGET_BAT%'; " ^
-    "$Shortcut.Arguments = 'daweiwei5211@outlook.com'; " ^
-    "$Shortcut.WorkingDirectory = '%SCRIPT_DIR%'; " ^
-    "$Shortcut.Description = 'Sherlock 用户搜索 - ZIP 快捷启动'; " ^
-    "$Shortcut.IconLocation = '%SCRIPT_DIR%Sherlock.bat,0'; " ^
-    "$Shortcut.Save(); " ^
-    "Write-Host '✓ 快捷方式已创建'"
+REM 使用 PowerShell 创建快捷方式（调用仓库中的 PowerShell 脚本以提高兼容性）
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0create_desktop_shortcut.ps1" || (
+    REM 如果调用脚本失败，回退到内联 PowerShell 命令
+    powershell -NoProfile -Command ^
+        "$WshShell = New-Object -ComObject WScript.Shell; " ^
+        "$Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); " ^
+        "$Shortcut.TargetPath = '%TARGET_BAT%'; " ^
+        "$Shortcut.Arguments = 'daweiwei5211@outlook.com'; " ^
+        "$Shortcut.WorkingDirectory = '%SCRIPT_DIR%'; " ^
+        "$Shortcut.Description = 'Sherlock 用户搜索 - ZIP 快捷启动'; " ^
+        "$Shortcut.IconLocation = '%SCRIPT_DIR%Sherlock.bat,0'; " ^
+        "$Shortcut.Save(); " ^
+        "Write-Host '✓ 快捷方式已创建'"
+)
 
 if errorlevel 1 (
     echo.
